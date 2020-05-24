@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const expressLayouts = require('express-ejs-layouts');
 
 const indexRouter = require('./routes/index');
+const authorRouter = require('./routes/authors');
 
 const app = new express();
 const PORT = process.env.PORT || 3000;
@@ -24,14 +25,20 @@ db.once('open', () => { console.log('Connected to MognoDB'); });
 
 // set view engine
 app.set('view engine', 'ejs');
-app.set('layout', 'layout');
+app.set('layout', 'layouts/layout');
 app.use(expressLayouts);
+
+// handle form requests
+app.use(express.urlencoded({ limit: '10mb', extended: false }));
 
 // static file
 app.use(express.static('public'));
 
 // index routes
 app.use('/', indexRouter);
+
+// author routes
+app.use('/authors', authorRouter);
 
 // server on port
 app.listen(PORT, (err) => {
