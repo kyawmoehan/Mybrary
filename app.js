@@ -8,6 +8,7 @@ const expressLayouts = require('express-ejs-layouts');
 
 const indexRouter = require('./routes/index');
 const authorRouter = require('./routes/authors');
+const bookRouter = require('./routes/books');
 
 const app = new express();
 const PORT = process.env.PORT || 3000;
@@ -32,13 +33,16 @@ app.use(expressLayouts);
 app.use(express.urlencoded({ limit: '10mb', extended: false }));
 
 // static file
-app.use(express.static('public'));
+app.use('/public',express.static('public'));
 
 // index routes
 app.use('/', indexRouter);
 
 // author routes
 app.use('/authors', authorRouter);
+
+// book routes
+app.use('/books', bookRouter);
 
 // server on port
 app.listen(PORT, (err) => {
