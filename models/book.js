@@ -8,7 +8,7 @@ const bookSchema = mongoose.Schema({
     createdAt: { type: Date, required: true, default: Date.now},
     coverImage: { type: Buffer, required: true},
     coverImageType: { type: String, require: true}, 
-    author: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Author'}
+    author: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Author' }
 });
 
 bookSchema.virtual('coverImagePath').get(function() {

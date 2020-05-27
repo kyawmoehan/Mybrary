@@ -5,6 +5,7 @@ if(process.env.NODE_ENV !== "production") {
 const express = require('express');
 const mongoose = require('mongoose');
 const expressLayouts = require('express-ejs-layouts');
+const methodOverride = require('method-override');
 
 const indexRouter = require('./routes/index');
 const authorRouter = require('./routes/authors');
@@ -28,6 +29,9 @@ db.once('open', () => { console.log('Connected to MognoDB'); });
 app.set('view engine', 'ejs');
 app.set('layout', 'layouts/layout');
 app.use(expressLayouts);
+
+// method override for form 
+app.use(methodOverride('_method'));
 
 // handle form requests
 app.use(express.urlencoded({ limit: '10mb', extended: false }));
