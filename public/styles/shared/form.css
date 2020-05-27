@@ -35,7 +35,7 @@
 }
 
 .form-item #textarea{
-    height: 100px;
+    height: 100%;
     resize: none;   
 }
 
@@ -44,7 +44,7 @@
 }
 
 .form-item input, .form-item select, .form-item textarea{
-    height: 2rem;
+    height: 2.2rem;
     padding: 0.2rem 0.5rem;
     border-radius: .25rem;
     border-color: var(--form-input-bg);
