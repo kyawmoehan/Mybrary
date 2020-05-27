@@ -1,0 +1,51 @@
+:root{
+    --color-btn-primary-text: hsl(var(--color-base-hue), 100%, 30%);
+    --color-btn-primary-bg: hsl(var(--color-base-hue), 100%, 83%);
+    --color-btn-border: black;
+    --color-btn-danger-text: black;
+    --color-btn-danger-bg: hsl(var(--color-danger-hue), 100%, 83%);
+}
+
+.btn-row {
+    display: flex;
+    align-items: flex-start;   
+}
+
+.btn-row > * {
+    margin-left: 1rem;
+}
+
+.btn-row > *:first-child {
+    margin-left: 0;
+}
+
+.btn{
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    font-family: 'Dosis', sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-primary{
+    color: var(--color-btn-primary-text);
+    background-color: var(--color-btn-primary-bg);
+}
+
+.btn-danger{
+    line-height: 1.6;
+    color: var(--color-btn-danger-text);
+    background-color: var(--color-btn-danger-bg);
+}
+
+.btn-primary:hover{
+    color: hsl(var(--color-base-hue), 100%, 10%);
+    background-color: hsl(var(--color-base-hue), 100%, 73%);
+}
+.btn-danger:hover{
+    color: hsl(var(--color-base-hue), 100%, 10%);
+    background-color: hsl(var(--color-danger-hue), 100%, 73%);
+}
