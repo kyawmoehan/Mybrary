@@ -7,6 +7,7 @@
 }
 
 .btn-row {
+    margin-top: 0.5rem;
     display: flex;
     align-items: flex-start;   
 }
@@ -28,6 +29,8 @@
     cursor: pointer;
     text-decoration: none;
     text-align: center;
+    line-height: 1.6;
+    margin-top: 0.5rem;
 }
 
 .btn-primary{
@@ -36,7 +39,6 @@
 }
 
 .btn-danger{
-    line-height: 1.6;
     color: var(--color-btn-danger-text);
     background-color: var(--color-btn-danger-bg);
 }
