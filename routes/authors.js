@@ -40,7 +40,6 @@ router.get('/:id', async (req, res) => {
     try {
         const author = await Author.findById(req.params.id);
         const books = await Book.find({ author: author.id }).limit(6).exec()
-        console.log(author.id);
         res.render('authors/show', {author, booksByAuthor: books});
     } catch (error) {
         res.redirect('/');
@@ -61,7 +60,7 @@ router.put('/:id', async (req, res) => {
     const updateAuthor = {
         name: req.body.name
     }
-    let authors;
+    let author;
     try {
         author = await Author.findByIdAndUpdate(req.params.id, {$set: updateAuthor} );
         res.redirect(`/authors/${author.id}`);
@@ -88,7 +87,6 @@ router.delete('/:id', async (req, res) => {
             res.redirect(`/authors/${author.id}`)
         }
     }
-    res.send('Delete author'+ req.params.id);
 });
 
 module.exports = router;
